@@ -9,8 +9,8 @@ import ItemPage from './../views/Items/Pricing'
 import ImgGallery from "views/ImgGallery";
 
 var indexRoutes = [
-  { path: "/items-page", name: "LandingPage", component: LandingPage },
-  { path: "/items-page", name: "ProfilePage", component: ProfilePage },
+  { path: "/landing-page", name: "LandingPage", component: ItemPage },
+  { path: "/profile-page", name: "ProfilePage", component: ItemPage },
   { path: "/login-page", name: "LoginPage", component: LoginPage },
   { path: "/items-page", name: "Pricing", component: ItemPage },
   { path: "/gallery", name: "imageGallery", component: ImgGallery },

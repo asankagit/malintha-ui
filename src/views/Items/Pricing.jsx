@@ -169,13 +169,13 @@ function Pricing(props) {
         {/* End hero unit */}
 
 
-        <Grid container spacing={24}  alignItems="flex-start">
+        <Grid container spacing={12}  alignItems="flex-start">
         
-        <Grid xs={12} sm={12} md={2}>
+        <Grid xs={12} sm={3} md={3}>
           <DateList/>
           <DateList/>
         </Grid>
-        <Grid item  xs={12} sm={12} md={10}>
+        <Grid item  xs={12} sm={9} md={9}>
               <Card>
                 <CartoonList/>
                 </Card>

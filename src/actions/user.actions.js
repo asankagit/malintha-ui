@@ -4,12 +4,12 @@ export function getAllUsers() {
 
     return (dispatch) => {
 
-        axios.get('https://httpbin.org/get')
+        axios.get('http://192.168.1.100:4000')
             .then(function (response) {
                 console.log("xxxxx",response);
                 dispatch({
                     type: 'FECTH_USERS',
-                    payload: response.data.headers
+                    payload: response.data
                 });
             })
             .catch(function (error) {

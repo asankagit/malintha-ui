@@ -44,22 +44,23 @@ class NestedList extends React.Component {
                     subheader={<ListSubheader component="div">Nested List Items</ListSubheader>}
                 >
                     <ListItem button>
-                        <ListItemIcon>
-                            <SendIcon />
-                        </ListItemIcon>
-                        <ListItemText inset primary="Sent mail" />
+                        
+                        <i class="material-icons">
+                            calendar_today
+                        </i>
+                        <ListItemText inset primary="June 2018" />
                     </ListItem>
                     <ListItem button>
-                        <ListItemIcon>
-                            <DraftsIcon />
-                        </ListItemIcon>
-                        <ListItemText inset primary="Drafts" />
+                    <i class="material-icons">
+                            calendar_today
+                        </i>
+                        <ListItemText inset primary="May 2018" />
                     </ListItem>
                     <ListItem button onClick={this.handleClick}>
-                        <ListItemIcon>
-                            <InboxIcon />
-                        </ListItemIcon>
-                        <ListItemText inset primary="Inbox" />
+                    <i class="material-icons">
+                            calendar_today
+                        </i>
+                        <ListItemText inset primary="April 2018" />
                         {this.state.open ? <ExpandLess /> : <ExpandMore />}
                     </ListItem>
                     <Collapse in={this.state.open} timeout="auto" unmountOnExit>

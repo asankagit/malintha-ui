@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectItem } from './../actions/index';
 import { dataRecieved } from './../actions/action-response-load';
+import { getDefaultImageCardItems } from './../actions/pageload.action';
 import { bindActionCreators } from 'redux';
 import { getAllUsers } from './../actions/user.actions';
-import {popLightBox } from './../actions/lightbox.action';
+import { popLightBox } from './../actions/lightbox.action';
 
 
 
@@ -14,33 +15,39 @@ import GridList from '@material-ui/core/GridList';
 
 
 class FolderList extends Component {
+    constructor(props) {
+        super(props);
+        if (!this.props.folders.size) {
+            this.props.deaultimages();
+        }
+    }
 
     renderList() {
         return (
             <Grid container spacing={12} alignItems="flex-end">
 
                 {/* <Grid item xs={12} sm={6} md={12}> */}
-                     {
+                {
 
-                        this.props.folders.map((folder) => {
-                            return (<Grid item xs={12} sm={8} md={4}>
-                                <span onClick={() => { this.props.selectItem(folder); this.props.lightboxStatus();alert("click") }}  >
+                    this.props.folders.map((folder) => {
+                        return (<Grid item xs={12} sm={12} md={4}>
+                            <span onClick={() => { this.props.selectItem(folder); this.props.lightboxStatus(); alert("click") }}  >
 
-                                    {/* <li key={folder.title}
+                                {/* <li key={folder.title}
                     onClick={() => { this.props.selectItem(folder) }}
                     className="list-group-item">
                     {folder.title}
                  </li> */}
-                                    <Demo
-                                        tittle={folder.title} url={folder.url} description={folder.title} />
+                                <Demo
+                                    tittle={folder.title} url={folder.url} description={folder.title} />
 
-                                </span>
-                                </Grid>
-                            );
-                        })
-                    }
-                    
-                </Grid>
+                            </span>
+                        </Grid>
+                        );
+                    })
+                }
+
+            </Grid>
             // </Grid>
         )
 
@@ -54,7 +61,15 @@ class FolderList extends Component {
     // }
 
     render() {
-        if (!this.props.folders) {
+        console.log("render function called")
+        let mt = true;
+        for (let obj in this.props.folders) {
+            if (obj.hasOwnProperty(obj))
+                mt = false
+        }
+        if (mt == true) {
+
+
             return <div>
                 <button name onClick={() => { this.props.imagecard({ title: 'asa' }) }}>
                     Reload Data
@@ -62,25 +77,27 @@ class FolderList extends Component {
 
                 please select one element to see details </div>
         }
+
+
+        console.log("Folder", this.props.folders)
+
         return (
             <div className={this.props.container}>
 
                 {this.renderList()}
-                <button /* onClick={() => { this.props.imagecard({ title: 'asa' }) }}*/>
+                {/* <button onClick={() => { this.props.imagecard({ title: 'asa' }) }}>
                     Reload Data
                 </button>
-                <ul className="list-group col-sm-12">
-                    {/* {this.renderList()} */}
-
-                </ul>
+                
 
                 <button name onClick={() => { this.props.xusers(); alert("click trigger") }}>
                     Fetch user Data
-                </button>
+                </button> */}
 
 
             </div>
         );
+
     }
 }
 
@@ -92,7 +109,7 @@ function mapStateToProps(state) {
         // books: state.imagecard
         folders: state.imagecard,
         member: this.xusers,
-        lightbox:this.lightboxStatus
+        lightbox: this.lightboxStatus
     };
 
 }
@@ -105,7 +122,8 @@ function mapDispatchToPropos(dispatch) {
         selectItem: bindActionCreators(selectItem, dispatch),
         imagecard: bindActionCreators(dataRecieved, dispatch),
         xusers: bindActionCreators(getAllUsers, dispatch),
-        lightboxStatus: bindActionCreators(popLightBox,dispatch)
+        lightboxStatus: bindActionCreators(popLightBox, dispatch),
+        deaultimages: bindActionCreators(getDefaultImageCardItems, dispatch)
     }
 }
 

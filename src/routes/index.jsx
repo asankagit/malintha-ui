@@ -14,7 +14,7 @@ var indexRoutes = [
   { path: "/login-page", name: "LoginPage", component: LoginPage },
   { path: "/items-page", name: "Pricing", component: ItemPage },
   { path: "/gallery", name: "imageGallery", component: ImgGallery },
-  { path: "/", name: "Components", component: Components }
+  { path: "/", name: "Components", component: ItemPage }
   
 ];
 

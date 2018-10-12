@@ -14,6 +14,12 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 
+
+import { getAllUsers } from './../actions/user.actions'; // getAllUser methods to get calender dates ;this must be renamed
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getDates } from './../actions/calendar.action';
+
 const styles = theme => ({
     root: {
         width: '100%',
@@ -26,9 +32,16 @@ const styles = theme => ({
 });
 
 class NestedList extends React.Component {
-    state = {
-        open: true,
-    };
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: true
+        };
+        if (!this.props.date.size) {
+            this.props.calendar();
+        }
+    }
 
     handleClick = () => {
         this.setState(state => ({ open: !state.open }));
@@ -37,45 +50,74 @@ class NestedList extends React.Component {
     render() {
         const { classes } = this.props;
 
-        return (
-            <div className={classes.root}>
-                <List
-                    component="nav"
-                    subheader={<ListSubheader component="div">Nested List Items</ListSubheader>}
-                >
-                    <ListItem button>
-                        
-                        <i class="material-icons">
-                            calendar_today
-                        </i>
-                        <ListItemText inset primary="June 2018" />
-                    </ListItem>
-                    <ListItem button>
-                    <i class="material-icons">
-                            calendar_today
-                        </i>
-                        <ListItemText inset primary="May 2018" />
-                    </ListItem>
-                    <ListItem button onClick={this.handleClick}>
-                    <i class="material-icons">
-                            calendar_today
-                        </i>
-                        <ListItemText inset primary="April 2018" />
-                        {this.state.open ? <ExpandLess /> : <ExpandMore />}
-                    </ListItem>
-                    <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding>
-                            <ListItem button className={classes.nested}>
-                                <ListItemIcon>
-                                    <StarBorder />
-                                </ListItemIcon>
-                                <ListItemText inset primary="Starred" />
+
+        let mt = true;
+        for (let obj in this.props.date) {
+            if (obj.hasOwnProperty(obj))
+                mt = false
+        }
+        if (mt != true) {
+            return (<div className={classes.root}>
+                {this.props.date.map((d) => {
+                    return (
+                        <List>
+
+                            <ListItem button onClick={() => { this.props.datelist() }}>
+                                
+                            <ListItemText inset primary={d.name} />
+
                             </ListItem>
-                        </List>
-                    </Collapse>
-                </List>
-            </div>
-        );
+
+                        </List>)
+                })
+                }
+
+
+
+            </div>)
+        } else {
+            
+            return (<p>Loading...</p>)
+        }
+
+
+
+
+
+
+
+
+        // return (
+        //     <div className={classes.root}>
+
+        //         <List
+        //             component="nav"
+        //             subheader={<ListSubheader component="div">Nested List Items</ListSubheader>}>
+        //             <ListItem button onClick={() => { this.props.datelist() }}>
+        //                 <ListItemText inset primary="June 2018" />
+
+        //             </ListItem> 
+
+
+        //             {/* <ListItem button onClick={this.handleClick}>
+
+        //                 <ListItemText inset primary="April 2018" />
+        //                 {this.state.open ? <ExpandLess /> : <ExpandMore />}
+        //             </ListItem>
+        //             <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+        //                 <List component="div" disablePadding>
+        //                     <ListItem button className={classes.nested}>
+        //                         <ListItemIcon>
+
+        //                             <SendIcon/>
+        //                         </ListItemIcon>
+        //                         <ListItemText inset primary="Starred" />
+        //                     </ListItem>
+        //                 </List>
+        //             </Collapse> */}
+        //         </List>
+        //     </div>
+        // );
     }
 }
 
@@ -83,4 +125,26 @@ NestedList.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(NestedList);
+
+function mapStateToProps(state) {
+
+    return {
+        date: state.calendar
+
+    };
+
+}
+function mapDispatchToPropos(dispatch) {
+    /**anythin  retrun from this function will endup as props  on  folder-list container */
+    console.log("dispatch", dispatchEvent)
+    /**whener selectItem is called, result should be pass to reducers  */
+    // return bindActionCreators({ selectItem: selectItem, imagecard: dataRecieved }, dispatch); /** before add getall usrrrs */
+    return {
+        datelist: bindActionCreators(getAllUsers, dispatch),
+        calendar: bindActionCreators(getDates, dispatch)
+    }
+}
+
+
+// export default withStyles(styles)(NestedList);
+export default connect(mapStateToProps, mapDispatchToPropos)(withStyles(styles)(NestedList));

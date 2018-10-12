@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-export function getAllUsers() { 
+export function getDates() { 
     
     return (dispatch) => {
 
-        axios.get('http://192.168.1.100:3001/btn')
+        axios.get('http://192.168.1.100:3001/calendar')
             .then(function (response) {
-                console.log("xxxxx user action:",response);
+                console.log("calendar:",response);
                 dispatch({
-                    type: 'RESPONSE_REC',
+                    type: 'FECTH_CALENDAR',
                     payload: response.data
                 });
             })

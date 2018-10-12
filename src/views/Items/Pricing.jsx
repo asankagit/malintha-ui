@@ -173,7 +173,7 @@ function Pricing(props) {
         
         <Grid xs={12} sm={3} md={3}>
           <DateList/>
-          <DateList/>
+          
         </Grid>
         <Grid item  xs={12} sm={9} md={9}>
               <Card>

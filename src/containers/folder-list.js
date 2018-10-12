@@ -9,6 +9,8 @@ import { popLightBox } from './../actions/lightbox.action';
 
 
 
+
+
 import Demo from './../views/demo'
 import Grid from '@material-ui/core/Grid';
 import GridList from '@material-ui/core/GridList';
@@ -19,7 +21,9 @@ class FolderList extends Component {
         super(props);
         if (!this.props.folders.size) {
             this.props.deaultimages();
+            
         }
+        //this.props.imagecard();
     }
 
     renderList() {
@@ -75,7 +79,8 @@ class FolderList extends Component {
                     Reload Data
                 </button>
 
-                please select one element to see details </div>
+                please select one element to see details 
+                </div>
         }
 
 
@@ -85,6 +90,7 @@ class FolderList extends Component {
             <div className={this.props.container}>
 
                 {this.renderList()}
+
                 {/* <button onClick={() => { this.props.imagecard({ title: 'asa' }) }}>
                     Reload Data
                 </button>
@@ -110,6 +116,7 @@ function mapStateToProps(state) {
         folders: state.imagecard,
         member: this.xusers,
         lightbox: this.lightboxStatus
+    
     };
 
 }
@@ -124,6 +131,7 @@ function mapDispatchToPropos(dispatch) {
         xusers: bindActionCreators(getAllUsers, dispatch),
         lightboxStatus: bindActionCreators(popLightBox, dispatch),
         deaultimages: bindActionCreators(getDefaultImageCardItems, dispatch)
+        // calendar: bindActionCreators(getDates, dispatch)
     }
 }
 

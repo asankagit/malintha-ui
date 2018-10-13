@@ -4,7 +4,7 @@ export function getDates() {
     
     return (dispatch) => {
 
-        axios.get('http://192.168.1.100:3001/calendar')
+        axios.get("http://192.168.1.100:3001/calendar")
             .then(function (response) {
                 console.log("calendar:",response);
                 dispatch({

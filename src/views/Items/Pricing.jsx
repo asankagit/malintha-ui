@@ -24,7 +24,7 @@ import DateList from './../../containers/datelist'
 const styles = theme => ({
   '@global': {
     body: {
-      backgroundColor: theme.palette.common.gray,
+      backgroundColor: theme.palette.common.white,
     },
   },
   appBar: {
@@ -32,6 +32,7 @@ const styles = theme => ({
   },
   toolbarTitle: {
     flex: 1,
+    fontSize: 0.01 
   },
   layout: {
     width: 'auto',
@@ -42,7 +43,7 @@ const styles = theme => ({
       marginLeft: 'auto',
       marginRight: 'auto',
     },
-    backgroundColor: 'gray',
+    backgroundColor: '#f5f5f5',
   },
   heroContent: {
     // backgroundImage:  "url('http://listtoday.org/wallpaper/2016/10/clinton-trump-election-political-cartoon-18-desktop-wallpaper.jpg')" ,
@@ -157,7 +158,7 @@ function Pricing(props) {
         <div>
           <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
             <Card style={{height:200}}>
-            <h1>Thissa Hewawissa</h1>
+            <h5>Thissa Hewawissa</h5>
             <h6>Cartoonist | Author</h6>
             </Card>
               

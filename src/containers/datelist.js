@@ -62,7 +62,7 @@ class NestedList extends React.Component {
                     return (
                         <List>
 
-                            <ListItem button onClick={() => { this.props.datelist() }}>
+                            <ListItem button onClick={() => { this.props.datelist(d.name) }}>
                                 
                             <ListItemText inset primary={d.name} />
 

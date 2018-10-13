@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export function getAllUsers() { 
+export function getAllUsers(date) { 
     
     return (dispatch) => {
 
-        axios.get('http://192.168.1.100:3001/btn')
+        axios.get(`http://192.168.1.100:3001/api/${date}`)
             .then(function (response) {
                 console.log("xxxxx user action:",response);
                 dispatch({

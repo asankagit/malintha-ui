@@ -28,7 +28,7 @@ class FolderList extends Component {
     }
 
     componentWillMount() {
-       alert("component wll mount")
+     
     }
     renderList() {
         let clear = true;
@@ -80,7 +80,7 @@ class FolderList extends Component {
                     Reload Data
                 </button> */}
 
-                please select another tab
+                <img  src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>
                 </div>
         }
 

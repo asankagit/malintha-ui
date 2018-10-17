@@ -69,54 +69,25 @@ const styles = theme => ({
    
   },
   footer: {
+    justifyContent:'center',
+    alignItems:'center',
     marginTop: theme.spacing.unit * 8,
     borderTop: `1px solid ${theme.palette.divider}`,
-    padding: `${theme.spacing.unit * 6}px 0`,
+    padding: `${theme.spacing.unit * 1}px 0`,
+    
   },
 });
 
 const tiers = [
-  {
-    title: 'Free',
-    price: '0',
-    description: [''],
-    buttonText: 'Sign up for free',
-    buttonVariant: 'outlined',
-  },
-  {
-    title: 'Pro',
-    subheader: 'Most popular',
-    price: '15',
-  description:  [<CartoonList/>],
-    buttonText: 'Get started',
-    imagePath: "https://html.com/wp-content/uploads/flamingo.jpg",
-    buttonVariant: 'contained',
-  },
-  {
-    title: 'Enterprise',
-    price:  '',
-    description: [ <CartoonList/>],
-    buttonText: 'Contact us',
-    buttonVariant: 'outlined',
-  },
+  
 ];
 const footers = [
+  {title: '',description: ['','', '']},
   {
-    title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Loctions'],
+    title: 'Thissa Hewawissa',
+    description: ['Cartoonist','All Right Recieved', '2018', 'Sri Lanka'],
   },
-  {
-    title: 'Features',
-    description: ['Cool stuff', 'Random feature', 'Team feature', 'Developer stuff', 'Another one'],
-  },
-  {
-    title: 'Resources',
-    description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
-  },
-  {
-    title: 'Legal',
-    description: ['Privacy policy', 'Terms of use'],
-  },
+  
 ];
 
 
@@ -183,47 +154,6 @@ function Pricing(props) {
                 
         </Grid>
         
-        
-          {/* {tiers.map(tier => (
-            // Enterprise card is full width at sm breakpoint
-            <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
-              <Card>
-                <CardHeader
-                  title={tier.title}
-                  subheader={tier.subheader}
-                  titleTypographyProps={{ align: 'center' }}
-                  subheaderTypographyProps={{ align: 'center' }}
-                  action={tier.title === 'Pro' ? <StarIcon /> : null}
-                  className={classes.cardHeader}
-                />
-                <CardContent>
-                  <div className={classes.cardPricing}>
-                    <Typography variant="display2" color="textPrimary">
-                      ${tier.price}
-                    </Typography>
-                    <img src ={tier.imagePath} alt="img" height="15 0" />
-                    <Typography variant="title" color="textSecondary">
-                      /mo
-                    </Typography>
-                  </div>
-                  {tier.description.map(line => (
-                    <Typography variant="subheading" align="center" key={line}>
-                      {line}
-                    </Typography>
-                  ))}
-                </CardContent>
-                <CardActions className={classes.cardActions}>
-                  <Button fullWidth variant={tier.buttonVariant} color="primary">
-                    {tier.buttonText}
-                  </Button>
-                </CardActions>
-                <p> ptag working </p>
-               
-              </Card>
-            
-            </Grid>
-          ))}
-           */}
         </Grid>
         
       </main>

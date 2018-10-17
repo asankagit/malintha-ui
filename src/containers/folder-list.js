@@ -11,6 +11,7 @@ import { popLightBox } from './../actions/lightbox.action';
 
 
 
+
 import Demo from './../views/demo'
 import Grid from '@material-ui/core/Grid';
 import GridList from '@material-ui/core/GridList';
@@ -20,30 +21,29 @@ class FolderList extends Component {
     constructor(props) {
         super(props);
         if (!this.props.folders.size) {
-            this.props.deaultimages();
+            this.props.defaultimages();
             
         }
         //this.props.imagecard();
     }
 
+    componentWillMount() {
+       alert("component wll mount")
+    }
     renderList() {
+        let clear = true;
         return (
             <Grid container spacing={12} alignItems="flex-end">
-
-                {/* <Grid item xs={12} sm={6} md={12}> */}
+                
                 {
-
+                   
                     this.props.folders.map((folder) => {
                         return (<Grid item xs={12} sm={12} md={4}>
-                            <span onClick={() => { this.props.selectItem(folder); this.props.lightboxStatus(); alert("click") }}  >
+                            <span  onClick={() => { this.props.selectItem(folder); this.props.lightboxStatus(); }}  >
 
-                                {/* <li key={folder.title}
-                    onClick={() => { this.props.selectItem(folder) }}
-                    className="list-group-item">
-                    {folder.title}
-                 </li> */}
+                                {console.log(folder.title,"\n" )}
                                 <Demo
-                                    tittle={folder.title} url={folder.url} description={folder.title} />
+                                    tittle={folder.title} url={folder.url} description={folder.description} />
 
                             </span>
                         </Grid>
@@ -65,6 +65,7 @@ class FolderList extends Component {
     // }
 
     render() {
+        
         console.log("render function called")
         let mt = true;
         for (let obj in this.props.folders) {
@@ -75,11 +76,11 @@ class FolderList extends Component {
 
 
             return <div>
-                <button name onClick={() => { this.props.imagecard({ title: 'asa' }) }}>
+                {/* <button name onClick={() => { this.props.imagecard({ title: 'asa' }) }}>
                     Reload Data
-                </button>
+                </button> */}
 
-                please select one element to see details 
+                please select another tab
                 </div>
         }
 
@@ -91,16 +92,6 @@ class FolderList extends Component {
 
                 {this.renderList()}
 
-                {/* <button onClick={() => { this.props.imagecard({ title: 'asa' }) }}>
-                    Reload Data
-                </button>
-                
-
-                <button name onClick={() => { this.props.xusers(); alert("click trigger") }}>
-                    Fetch user Data
-                </button> */}
-
-
             </div>
         );
 
@@ -111,11 +102,12 @@ function mapStateToProps(state) {
     console.log("folder-list.js this STATES:", state)
     //what ever retunr  is will showup as props
     return {
-        // books: [{title:'aba'},{title:'shrloc homes'}]
+        
         // books: state.imagecard
         folders: state.imagecard,
         member: this.xusers,
-        lightbox: this.lightboxStatus
+        lightbox: this.lightboxStatus,
+        
     
     };
 
@@ -130,7 +122,8 @@ function mapDispatchToPropos(dispatch) {
         imagecard: bindActionCreators(dataRecieved, dispatch),
         xusers: bindActionCreators(getAllUsers, dispatch),
         lightboxStatus: bindActionCreators(popLightBox, dispatch),
-        deaultimages: bindActionCreators(getDefaultImageCardItems, dispatch)
+        defaultimages: bindActionCreators(getDefaultImageCardItems, dispatch),
+       
         // calendar: bindActionCreators(getDates, dispatch)
     }
 }

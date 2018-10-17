@@ -1,7 +1,8 @@
 import axios from 'axios';
+// import { selectItem } from './index';
 
 export function getAllUsers(date) { 
-    
+   
     return (dispatch) => {
 
         axios.get(`http://localhost:3001/fb/${date}`)

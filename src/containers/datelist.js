@@ -19,6 +19,7 @@ import { getAllUsers } from './../actions/user.actions'; // getAllUser methods t
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getDates } from './../actions/calendar.action';
+import { clear} from './../actions/clean.action';
 
 const styles = theme => ({
     root: {
@@ -62,7 +63,7 @@ class NestedList extends React.Component {
                     return (
                         <List>
 
-                            <ListItem button onClick={() => { this.props.datelist(d.name) }}>
+                            <ListItem button onClick={() => {this.props.clearimages(); this.props.datelist(d.name) }}>
                                 
                             <ListItemText inset primary={d.name} />
 
@@ -141,7 +142,8 @@ function mapDispatchToPropos(dispatch) {
     // return bindActionCreators({ selectItem: selectItem, imagecard: dataRecieved }, dispatch); /** before add getall usrrrs */
     return {
         datelist: bindActionCreators(getAllUsers, dispatch),
-        calendar: bindActionCreators(getDates, dispatch)
+        calendar: bindActionCreators(getDates, dispatch),
+        clearimages: bindActionCreators(clear, dispatch)
     }
 }
 

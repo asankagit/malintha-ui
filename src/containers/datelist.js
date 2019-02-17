@@ -19,7 +19,7 @@ import { getAllUsers } from './../actions/user.actions'; // getAllUser methods t
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getDates } from './../actions/calendar.action';
-import { clear} from './../actions/clean.action';
+import { clear } from './../actions/clean.action';
 
 const styles = theme => ({
     root: {
@@ -58,26 +58,46 @@ class NestedList extends React.Component {
                 mt = false
         }
         if (mt != true) {
-            return (<div className={classes.root}>
-                {this.props.date.map((d) => {
-                    return (
-                        <List>
+            return (
+                <div className={classes.root}>
+                    <div class="mdl-tabs vertical-mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                        {this.props.date.map((d) => {
+                            return (
+                <div class="mdl-tabs vertical-mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                     <div class="mdl-grid mdl-grid--no-spacing">
+                        <div class="mdl-tabs__tab-bar">
+                            <div href="#tab1-panel" class="mdl-tabs__tab is-active">
+                                        <span class="hollow-circle"></span>
+                                        <List  >
 
-                            <ListItem button onClick={() => {this.props.clearimages(); this.props.datelist(d.name) }}>
-                                
-                            <ListItemText inset primary={d.name} />
+                                        <ListItem class='listitem' button onClick={() => { this.props.clearimages(); this.props.datelist(d.name) }}>
 
-                            </ListItem>
+                                            <ListItemText inset primary={d.name} />
 
-                        </List>)
-                })
-                }
+                                        </ListItem>
+
+                                        </List>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
 
 
 
-            </div>)
+
+
+
+                        )
+                        })
+                        }
+
+
+
+                    </div>
+                </div>)
         } else {
-            
+
             return (<p>Loading...</p>)
         }
 

@@ -19,7 +19,8 @@ import CartoonList from './../../containers/folder-list';
 import ItemDetail from './../../containers/item_detail'
 import LightBox from './../../containers/LightBox'
 import DateList from './../../containers/datelist'
-
+import Navigation from "../../components/navigation"
+import Drawer from "../../components/Drawer"
 
 const styles = theme => ({
   '@global': {
@@ -84,7 +85,7 @@ const tiers = [
 const footers = [
   {title: '',description: ['','', '']},
   {
-    title: 'Thissa Hewawissa',
+    title: `Cartoon World version${React.version}`,
     description: ['Cartoonist','All Right Recieved', '2018', 'Sri Lanka'],
   },
   
@@ -103,23 +104,11 @@ function Pricing(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="static" color="default" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="title" color="inherit" noWrap className={classes.toolbarTitle}>
-            Hewawissage Hasaralla
-          </Typography>
-          <Button>Features</Button>
-          <Button>Enterprise</Button>
-          <Button>Support</Button>
-          <Button color="primary" variant="outlined">
-            Login
-          </Button>
-        </Toolbar>
-      </AppBar>
+      
      
-      <main className={classes.layout}>
+      <div /*main className={classes.layout} */>
         {/* Hero unit */}
-        
+      
         
         <Grid item xs={12} sm={12} md={12}>
             {/* <ItemDetail/> */}
@@ -127,10 +116,10 @@ function Pricing(props) {
         </Grid>
         {/* <div className={classes.heroContent}> */}
         <div>
-          <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
-            <Card style={{height:200}}>
-            <h5>Thissa Hewawissa</h5>
-            <h6>Cartoonist | Author</h6>
+          <Typography variant="display2" align="center" color="textPrimary" gutterBottom >
+            <Card>
+            <h1></h1>  
+            <p>Thissa Hewawissa</p>
             </Card>
               
           </Typography>
@@ -140,7 +129,7 @@ function Pricing(props) {
         </div>
         {/* End hero unit */}
 
-
+        <Navigation/>
         <Grid container spacing={12}  alignItems="flex-start">
         
         <Grid xs={12} sm={3} md={3}>
@@ -156,7 +145,7 @@ function Pricing(props) {
         
         </Grid>
         
-      </main>
+      </div  >
       {/* Footer */}
       <footer className={classNames(classes.footer, classes.layout)}>
         <Grid container spacing={32} justify="space-evenly">
@@ -174,6 +163,8 @@ function Pricing(props) {
           ))}
         </Grid>
       </footer>
+      
+      <Drawer/>
       {/* End footer */}
     </React.Fragment>
   );

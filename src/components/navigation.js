@@ -6,7 +6,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-
+// import {Tabs, Tab,  TabPanel, TabList ,TabProvider} from 'react-web-tabs';
+import { render } from 'react-dom';
 
 function TabContainer({ children, dir }) {
     return (
@@ -48,34 +49,29 @@ class Navigation extends React.Component {
         return (
             <div className={classes.root}>
                 
-
+               
                 {/* <AppBar style={{alignContent:"center",width: 5000, height: 50 }} position="static" color="default"> */}
                 <Tabs 
-                    defaultTab="vertical-tab-one" vertical
                     value={this.state.value}
                     onChange={this.handleChange}
                     indicatorColor="primary"
                     textColor="primary"
                     variant="fullWidth"
-                    style={{
-                        flex: 1,
-                        flexDirection: "column",
-                        
-                    }}
+                    style = {{alignContent:"center"}}
                 >
-                    <Tab label="Item One" dir="column" />
-                    <Tab label="Item Two" />
-                    <Tab label="Item Three" />
+                    <Tab label="Cartoons"  />
+                    <Tab label="Publications" />
+                    
                 </Tabs>
                 {/* </AppBar> */}
-                <SwipeableViews
+                <SwipeableViews 
                     axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                     index={this.state.value}
                     onChangeIndex={this.handleChangeIndex}
                 >
-                    <TabContainer dir={theme.direction} >Item One</TabContainer>
-                    <TabContainer dir={theme.direction} >Item Two</TabContainer>
-                    <TabContainer dir={theme.direction} > Item Three</TabContainer>
+                    <TabContainer dir={theme.direction} >Cartoons </TabContainer>
+                    <TabContainer dir={theme.direction} >Publications</TabContainer>
+                    
                 </SwipeableViews>
             </div>
         );

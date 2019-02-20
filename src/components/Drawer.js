@@ -18,7 +18,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-
+import DateList from './../containers/datelist'
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -135,6 +135,7 @@ class PersistentDrawerLeft extends React.Component {
           </div>
           <Divider />
           <List>
+          <DateList/>
             {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>

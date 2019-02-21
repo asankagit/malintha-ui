@@ -33,7 +33,7 @@ const styles = theme => ({
   },
   toolbarTitle: {
     flex: 1,
-    fontSize: 0.01 
+    fontSize: 0.01
   },
   layout: {
     width: 'auto',
@@ -51,7 +51,7 @@ const styles = theme => ({
     maxWidth: 600,
     margin: '0 auto',
     padding: `${theme.spacing.unit * 0.2}px 0 ${theme.spacing.unit * 0.2}px`,
-    
+
   },
   cardHeader: {
     backgroundColor: theme.palette.grey[200],
@@ -67,28 +67,29 @@ const styles = theme => ({
     [theme.breakpoints.up('sm')]: {
       paddingBottom: theme.spacing.unit * 2,
     },
-   
+
   },
   footer: {
-    justifyContent:'center',
-    alignItems:'center',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: theme.spacing.unit * 8,
     borderTop: `1px solid ${theme.palette.divider}`,
-    padding: `${theme.spacing.unit * 1}px 0`,
-    
+    margin: 50,
+    padding: `${theme.spacing.unit * 1}px 8`,
+
   },
 });
 
 const tiers = [
-  
+
 ];
 const footers = [
-  {title: '',description: ['','', '']},
+
   {
-    title: `Cartoon World version${React.version}`,
-    description: ['Cartoonist','All Right Recieved', '2018', 'Sri Lanka'],
+    title: `${React.version}`,
+    description: ['All Right Recieved', '2018', 'Sri Lanka'],
   },
-  
+
 ];
 
 
@@ -104,51 +105,43 @@ function Pricing(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      
-     
-      <div /*main className={classes.layout} */>
-        {/* Hero unit */}
+
+
       
         
-        <Grid item xs={12} sm={12} md={12}>
-            {/* <ItemDetail/> */}
-            <LightBox/>
-        </Grid>
-        {/* <div className={classes.heroContent}> */}
+      <Drawer />
         <div>
           <Typography variant="display2" align="center" color="textPrimary" gutterBottom >
             <Card>
-            <h1></h1>  
-            <p>Thissa Hewawissa</p>
+              <p>Thissa Hewawissa</p>
             </Card>
-              
           </Typography>
-          <Typography variant="title" align="center" color="textSecondary" component="p">
-           
-          </Typography>
-        </div>
-        {/* End hero unit */}
-
-        <Navigation/>
-        <Grid container spacing={12}  alignItems="flex-start">
-        
-        <Grid xs={12} sm={3} md={3}>
-          <DateList/>
           
+        </div>
+
+
+
+        <Grid container spacing={12} justify="space-evenly">
+        <Navigation/>
         </Grid>
-        <Grid item  xs={12} sm={9} md={9}>
-              <Card>
-                <CartoonList/>
-                </Card>
-                
+
+        <Grid container spacing={12} alignItems="flex-start">
+          <Grid xs={12} sm={3} md={3}>
+            <DateList />
+          </Grid>
+          <Grid item xs={12} sm={9} md={9}>
+            <Card>
+              <CartoonList />
+            </Card>
+          </Grid>
         </Grid>
+
+      
+
+      <footer className={classNames(classes.footer)}>
+      
         
-        </Grid>
-        
-      </div  >
-      {/* Footer */}
-      <footer className={classNames(classes.footer, classes.layout)}>
-        <Grid container spacing={32} justify="space-evenly">
+        <Grid container spacing={12} justify="space-evenly">
           {footers.map(footer => (
             <Grid item xs key={footer.title}>
               <Typography variant="title" color="textPrimary" gutterBottom>
@@ -163,8 +156,8 @@ function Pricing(props) {
           ))}
         </Grid>
       </footer>
-      
-      <Drawer/>
+
+
       {/* End footer */}
     </React.Fragment>
   );

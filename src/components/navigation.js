@@ -7,6 +7,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 // import {Tabs, Tab,  TabPanel, TabList ,TabProvider} from 'react-web-tabs';
+import  './navigationStyle.css'
 import { render } from 'react-dom';
 
 function TabContainer({ children, dir }) {
@@ -50,7 +51,7 @@ class Navigation extends React.Component {
             <div className={classes.root}>
                 
                
-                {/* <AppBar style={{alignContent:"center",width: 5000, height: 50 }} position="static" color="default"> */}
+                
                 <Tabs 
                     value={this.state.value}
                     onChange={this.handleChange}
@@ -59,18 +60,18 @@ class Navigation extends React.Component {
                     variant="fullWidth"
                     style = {{alignContent:"center"}}
                 >
-                    <Tab label="Cartoons"  />
-                    <Tab label="Publications" />
+                    <Tab className="tabelement" label="Cartoons" />
+                    <Tab classdName="tabelement" label="Publications" />
                     
                 </Tabs>
-                {/* </AppBar> */}
+              
                 <SwipeableViews 
                     axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                     index={this.state.value}
                     onChangeIndex={this.handleChangeIndex}
                 >
-                    <TabContainer dir={theme.direction} >Cartoons </TabContainer>
-                    <TabContainer dir={theme.direction} >Publications</TabContainer>
+                    <TabContainer    dir={theme.direction} >Cartoons </TabContainer>
+                    <TabContainer   dir={theme.direction} >Publications</TabContainer>
                     
                 </SwipeableViews>
             </div>

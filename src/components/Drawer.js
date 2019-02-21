@@ -99,7 +99,7 @@ class PersistentDrawerLeft extends React.Component {
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
-            style={{backgroundColor:"gray"}}
+            style={{backgroundColor:"blue",opacity:0.8}}
           position="fixed"
           className={classNames(classes.appBar, {
             [classes.appBarShift]: open,
@@ -136,7 +136,7 @@ class PersistentDrawerLeft extends React.Component {
           <Divider />
           <List>
           <DateList/>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+            {['Log out', 'Faqs'].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                 <ListItemText primary={text} />
@@ -150,12 +150,12 @@ class PersistentDrawerLeft extends React.Component {
           })}
         >
           <div className={classes.drawerHeader} />
-          <Typography paragraph>
+          {/* <Typography paragraph>
            site under construction
           </Typography>
           <Typography paragraph>
             Cartoon world
-          </Typography>
+          </Typography> */}
         </main>
       </div>
     );

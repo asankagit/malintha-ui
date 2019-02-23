@@ -19,6 +19,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import DateList from './../containers/datelist'
+
+
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -143,6 +145,7 @@ class PersistentDrawerLeft extends React.Component {
               </ListItem>
             ))}
           </List>
+          
         </Drawer>
         <main
           className={classNames(classes.content, {

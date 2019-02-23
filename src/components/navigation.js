@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import  './navigationStyle.css'
 import { render } from 'react-dom';
 
+
 function TabContainer({ children, dir }) {
     return (
         <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
@@ -70,7 +71,7 @@ class Navigation extends React.Component {
                     index={this.state.value}
                     onChangeIndex={this.handleChangeIndex}
                 >
-                    <TabContainer    dir={theme.direction} >Cartoons </TabContainer>
+                    <TabContainer    dir={theme.direction} >  </TabContainer>
                     <TabContainer   dir={theme.direction} >Publications</TabContainer>
                     
                 </SwipeableViews>

@@ -21,6 +21,7 @@
     "react-datetime": "2.15.0",
     "react-dom": "16.4.2",
     "react-nouislider": "2.0.1",
+    "react-photo-gallery": "^6.3.1",
     "react-promise": "^2.0.3",
     "react-redux": "^5.0.7",
     "react-router-dom": "4.3.1",

@@ -40,7 +40,7 @@ export class AddthisPlugin extends React.Component {
         return (
             <div> 
                
-                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c713ce90b0da28e"></script>
+                {/* <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c713ce90b0da28e"></script> */}
                 {
                     (function (d, s, id) {
                         let js, fjs = d.getElementsByTagName(s)[0];

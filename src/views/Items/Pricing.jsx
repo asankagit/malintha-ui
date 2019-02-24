@@ -21,7 +21,7 @@ import LightBox from './../../containers/LightBox'
 import DateList from './../../containers/datelist'
 import Navigation from "../../components/navigation"
 import Drawer from "../../components/Drawer"
-import { CartoonGallery } from "./../../components/Gallery/CartoonGallery"
+import  CartoonGallery  from "./../../components/Gallery/CartoonGallery"
 
 const styles = theme => ({
   '@global': {
@@ -131,9 +131,10 @@ function Pricing(props) {
             <DateList />
           </Grid>
           <Grid item xs={12} sm={9} md={9}>
-            <Card>
+            {/* <Card> */}
               <CartoonList />
-            </Card>
+              <CartoonGallery/>
+            {/* </Card> */}
           </Grid>
         </Grid>
 
@@ -141,7 +142,7 @@ function Pricing(props) {
 
       <footer className={classNames(classes.footer)}>
       
-        <CartoonGallery/>
+        {/* <CartoonGallery/> */}
         <Grid container spacing={12} justify="space-evenly">
           {footers.map(footer => (
             <Grid item xs key={footer.title}>

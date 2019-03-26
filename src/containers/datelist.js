@@ -62,33 +62,34 @@ class NestedList extends React.Component {
                 <div className={classes.root}>
                     <div class="mdl-tabs vertical-mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
                         {this.props.date.map((d) => {
+                            console.log("datelist",d)
                             return (
-                <div class="mdl-tabs vertical-mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-                     <div class="mdl-grid mdl-grid--no-spacing">
-                        <div class="mdl-tabs__tab-bar">
-                            <div href="#tab1-panel" class="mdl-tabs__tab is-active">
-                                        <span class="hollow-circle"></span>
-                                        <List  >
+                                <div class="mdl-tabs vertical-mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                                    <div class="mdl-grid mdl-grid--no-spacing">
+                                        <div class="mdl-tabs__tab-bar">
+                                            <div href="#tab1-panel" class="mdl-tabs__tab is-active">
+                                                <span class="hollow-circle"></span>
+                                                <List  >
 
-                                        <ListItem class='listitem' button onClick={() => { this.props.clearimages(); this.props.datelist(d.name) }}>
+                                                    <ListItem class='listitem' button onClick={() => { this.props.clearimages(); this.props.datelist(d.id) }}>
 
-                                            <ListItemText inset primary={d.name} />
+                                                        <ListItemText inset primary={d.name} />
 
-                                        </ListItem>
+                                                    </ListItem>
 
-                                        </List>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
+                                                </List>
+                                            </div>
 
-
+                                        </div>
+                                    </div>
+                                </div>
 
 
 
 
-                        )
+
+
+                            )
                         })
                         }
 

@@ -5,7 +5,8 @@ export function getAllUsers(date) {
    
     return (dispatch) => {
 
-        axios.get(`http://localhost:3001/fb/${date}`)
+        // axios.get(`http://localhost:3001/fb/${date}`)
+        axios.get(`http://localhost:3001/drive/children/${date}`)
             .then(function (response) {
                 console.log("xxxxx user action:",response);
                 dispatch({

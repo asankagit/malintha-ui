@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 // import {Tabs, Tab,  TabPanel, TabList ,TabProvider} from 'react-web-tabs';
 import  './navigationStyle.css'
 import { render } from 'react-dom';
+import CartoonList from './Gallery/CartoonGallery'
 
 
 function TabContainer({ children, dir }) {
@@ -72,7 +73,9 @@ class Navigation extends React.Component {
                     onChangeIndex={this.handleChangeIndex}
                 >
                     <TabContainer    dir={theme.direction} >  </TabContainer>
-                    <TabContainer   dir={theme.direction} >Publications</TabContainer>
+                    <TabContainer   dir={theme.direction} >
+                        {/* <CartoonList /> */}
+                    </TabContainer>
                     
                 </SwipeableViews>
             </div>

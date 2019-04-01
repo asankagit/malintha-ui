@@ -132,7 +132,7 @@ function Pricing(props) {
           </Grid>
           <Grid item xs={12} sm={9} md={9}>
             {/* <Card> */}
-              <CartoonList />
+              {/* <CartoonList /> */}
               <CartoonGallery/>
             {/* </Card> */}
           </Grid>

@@ -22,6 +22,7 @@ import DateList from './../../containers/datelist'
 import Navigation from "../../components/navigation"
 import Drawer from "../../components/Drawer"
 import  CartoonGallery  from "./../../components/Gallery/CartoonGallery"
+import { connect } from 'react-redux';
 
 const styles = theme => ({
   '@global': {
@@ -100,9 +101,15 @@ const footers = [
 
 
 
-function Pricing(props) {
-  const { classes } = props;
-
+// function Pricing(props) {
+class Pricing extends React.Component {
+  constructor(props){
+    super(props)
+    let classes  = props;
+  }
+  
+render(){
+  
   return (
     <React.Fragment>
       <CssBaseline />
@@ -133,14 +140,16 @@ function Pricing(props) {
           <Grid item xs={12} sm={9} md={9}>
             {/* <Card> */}
               {/* <CartoonList /> */}
-              <CartoonGallery/>
+              {console.log("Pricing143",this.props.switchTab)}
+              {this.props.switchTab == "cartoons" ?<CartoonGallery/>:<CartoonList />}
+              {/* <CartoonGallery/> */}
             {/* </Card> */}
           </Grid>
         </Grid>
 
       
 
-      <footer className={classNames(classes.footer)}>
+      <footer /*className={classNames(classes.footer)}*/>
       
         {/* <CartoonGallery/> */}
         <Grid container spacing={12} justify="space-evenly">
@@ -164,9 +173,16 @@ function Pricing(props) {
     </React.Fragment>
   );
 }
+}
 
 Pricing.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Pricing);
+function mapStateToProps(state){
+  return{
+    switchTab: state.switchContent
+  }
+}
+// export default withStyles(styles)(Pricing);
+export default connect(mapStateToProps)(withStyles(styles)(Pricing));

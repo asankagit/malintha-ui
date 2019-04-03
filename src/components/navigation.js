@@ -10,7 +10,9 @@ import Typography from '@material-ui/core/Typography';
 import  './navigationStyle.css'
 import { render } from 'react-dom';
 import CartoonList from './Gallery/CartoonGallery'
-
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { publications,cartoons } from './../actions/content_type.action';
 
 function TabContainer({ children, dir }) {
     return (
@@ -33,22 +35,35 @@ const styles = theme => ({
 });
 
 class Navigation extends React.Component {
+    constructor(props){
+        super(props);
+    }
     state = {
         value: 0,
     };
 
     handleChange = (event, value) => {
         this.setState({ value });
+        if(value){
+            this.props.setNavToPublications();
+        }else{
+            this.props.setNavToCartoons();
+        }
     };
 
     handleChangeIndex = index => {
+        alert(index)
+        if(index){
+            this.props.setNavToPublications();
+        }else{
+            this.props.setNavToCartoons();
+        }
         this.setState({ value: index });
     };
 
     
     render() {
         const { classes, theme } = this.props;
-       
         return (
             <div className={classes.root}>
                 
@@ -56,6 +71,7 @@ class Navigation extends React.Component {
                 
                 <Tabs 
                     value={this.state.value}
+                    // onChange={this.handleChange}
                     onChange={this.handleChange}
                     indicatorColor="primary"
                     textColor="primary"
@@ -70,7 +86,7 @@ class Navigation extends React.Component {
                 <SwipeableViews 
                     axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                     index={this.state.value}
-                    onChangeIndex={this.handleChangeIndex}
+                    onChangeIndex={(index)=>{alert(index)}}
                 >
                     <TabContainer    dir={theme.direction} >  </TabContainer>
                     <TabContainer   dir={theme.direction} >
@@ -88,4 +104,17 @@ Navigation.propTypes = {
     theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(Navigation);
+
+function mapStateToProps(state) {
+
+}
+
+function mapDispatchToPropos(dispatch) {
+    return {
+        setNavToCartoons: bindActionCreators(cartoons, dispatch),
+        setNavToPublications: bindActionCreators(publications, dispatch),
+    }
+}
+
+// export default withStyles(styles, { withTheme: true })(Navigation);
+export default connect(mapStateToProps, mapDispatchToPropos)(withStyles(styles, { withTheme: true })(Navigation));

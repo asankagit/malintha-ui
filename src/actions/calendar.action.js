@@ -4,7 +4,7 @@ export function getDates() {
     
     return (dispatch) => {
 
-        axios.get("http://localhost:3001/drive/calendar")
+        axios.get("https://malintha-server.herokuapp.com/drive/calendar")
             .then(function (response) {
                 console.log("calendar:",response);
                 dispatch({

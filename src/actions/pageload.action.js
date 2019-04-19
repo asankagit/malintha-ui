@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function getDefaultImageCardItems() {
     return (dispatch) => {
-        axios.get('http://localhost:3001')
+        axios.get('https://malintha-server.herokuapp.com')
             .then(function (response) {
                 dispatch({
                     type: 'DEFAULT_IMAGE_CARD_REC',

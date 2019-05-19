@@ -23,6 +23,7 @@ import Navigation from "../../components/navigation"
 import Drawer from "../../components/Drawer"
 import  CartoonGallery  from "./../../components/Gallery/CartoonGallery"
 import { connect } from 'react-redux';
+import "./Pricing.css"
 
 const styles = theme => ({
   '@global': {
@@ -111,18 +112,20 @@ class Pricing extends React.Component {
 render(){
   
   return (
-    <React.Fragment>
-      <CssBaseline />
+    // <React.Fragment>
+    <div>
+      {/* <CssBaseline /> */}
 
 
       
-        
-      <Drawer />
+      <div height="100px">
+        <Drawer />
+      </div>
         <div>
           <Typography variant="display2" align="center" color="textPrimary" gutterBottom >
-            <Card>
-              <p>Thissa Hewawissa</p>
-            </Card>
+            
+              <p className="nameBar" >Thissa Hewawissa</p>
+            
           </Typography>
           
         </div>
@@ -135,15 +138,14 @@ render(){
 
         <Grid container spacing={12} alignItems="flex-start">
           <Grid xs={12} sm={3} md={3}>
-            <DateList />
+            <div  class="tagmenu">
+              <DateList/>
+            </div>
+            
           </Grid>
           <Grid item xs={12} sm={9} md={9}>
-            {/* <Card> */}
-              {/* <CartoonList /> */}
-              {console.log("Pricing143",this.props.switchTab)}
               {this.props.switchTab == "cartoons" ?<CartoonGallery/>:<CartoonList />}
-              {/* <CartoonGallery/> */}
-            {/* </Card> */}
+
           </Grid>
         </Grid>
 
@@ -170,7 +172,8 @@ render(){
 
 
       {/* End footer */}
-    </React.Fragment>
+    {/* </React.Fragment> */}
+    </div>
   );
 }
 }

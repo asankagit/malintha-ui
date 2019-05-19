@@ -117,7 +117,7 @@ class PersistentDrawerLeft extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              <img height="50" src="http://employmentnews.gov.in/writereaddata/23032016402879VOLUME-52%20CAREER%20as%20a%20CARTOONIST.png"/>
+              <p>Thissa hewawisaa</p>
             </Typography>
           </Toolbar>
         </AppBar>

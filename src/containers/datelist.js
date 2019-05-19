@@ -20,6 +20,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getDates } from './../actions/calendar.action';
 import { clear } from './../actions/clean.action';
+import "./datelist.css"
 
 const styles = theme => ({
     root: {
@@ -71,7 +72,7 @@ class NestedList extends React.Component {
                                                 <span class="hollow-circle"></span>
                                                 <List  >
 
-                                                    <ListItem class='listitem' button onClick={() => { this.props.clearimages(); this.props.datelist(d.id) }}>
+                                                    <ListItem class="listitem" button onClick={() => { this.props.clearimages(); this.props.datelist(d.id) }}>
 
                                                         <ListItemText inset primary={d.name} />
 

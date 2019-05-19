@@ -1,0 +1,16 @@
+.nameBar {
+    /* background-image: url("http://getdrawings.com/vectors/free-vector-pattern-background-35.jpg"); */
+    box-shadow: 0px 4px 10px 1px rgb(248, 244, 248);
+    margin-top: -46px;
+    padding-bottom: 40px;
+    padding-top:30px;
+}
+
+.tagmenu {
+    background-color: blueviolet;
+}
+@media screen and (max-width: 600px) {
+    .tagmenu {
+      display: none;
+    }
+  }

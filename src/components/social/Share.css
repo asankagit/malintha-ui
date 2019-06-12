@@ -1,0 +1,12 @@
+.share_card{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+}
+.mailIcon {
+    margin-top: 10px;
+}
+.svgMailIcon {
+    width: 13px;
+}

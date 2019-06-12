@@ -5,7 +5,8 @@ import SelectedImage from "./SelectedImage";
 import { connect } from 'react-redux';
 import { getDefaultImageCardItems } from './../../actions/pageload.action';
 import { bindActionCreators } from 'redux';
-
+import { CartoonElement } from "./CartoonElement"
+import  { SocialPlugins } from "../social/share"
 const photos = [
     {
         src: "#",
@@ -42,20 +43,7 @@ class CartoonGallery extends React.Component {
 
     _generatePhotos() {
 
-        let photolist = [
-            {
-                //     src: "#default-image",
-                //     srcSet: [
-                //         "#/500x375 500w",
-                //         "#/800x600 800w",
-                //         "#/1024x768 1024w",
-                //         "#/1600x1200 1600w"
-                //     ],
-                //     sizes: ["(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw"],
-                //     width: 4,
-                //     height: 3
-            }
-        ];
+        let photolist = [{}];
 
         if (typeof this.props.photoUrl != undefined && this.props.photoUrl[0]) {
             console.log("photourl", this.props.photoUrl)
@@ -71,6 +59,7 @@ class CartoonGallery extends React.Component {
                 tmpobj.height = Math.floor(Math.random() * (+max - +min)) + +min;
                 tmpobj.index = image.id;
                 photolist.push(tmpobj)
+                
 
             })
 
@@ -91,6 +80,21 @@ class CartoonGallery extends React.Component {
         });
         this.setState({ photos: photos, selectAll: !this.state.selectAll });
     }
+
+    _generateFlexElementCartoonItems = () => {
+        return (Boolean(typeof this.props.photoUrl != undefined && this.props.photoUrl[0]) ? 
+                this.props.photoUrl.map((image, index) => {
+                   return (<div key={image.id} /*style={{backgroundImage:`url(${image.url})`}}*/>
+                   <img src={image.url} width="100%" />
+                   <div class="share"> <SocialPlugins  sharelink={"#"} hashTag="" text="" iconColor="" textColor =""/></div>
+                    </div>)
+                })
+                : 
+                (<p> no elements to show </p>))
+            
+    }
+
+    
     render() {
        
         let photoautoGen = this._generatePhotos()
@@ -111,13 +115,15 @@ class CartoonGallery extends React.Component {
 
             return (
                 <div>
-
-                    <Gallery
+                    <CartoonElement >
+                        { this._generateFlexElementCartoonItems()}
+                    </CartoonElement> 
+                    {/* <Gallery 
                         photos={photoautoGen}
                         onClick={this.selectPhoto}
                         ImageComponent={SelectedImage}
                         direction={"column"}
-                    />
+                    /> */}
 
                 </div>
             )

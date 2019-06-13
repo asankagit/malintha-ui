@@ -9,7 +9,7 @@
   background-repeat: no-repeat;
   /* height:  calc(100vh - 100px); */
   background-size: 100%;
-  box-shadow: 1px 1px 10px 2px gray;
+  box-shadow: 1px 1px 10px -2px gray;
   
   
 }
@@ -30,26 +30,28 @@
         flex: 0 0 100%;
         /* flex-basis: 100%; */
         min-width: 284px;
+        box-shadow: 1px 1px 2px -2px gray;
+        border: solid 1px gray;
       }
   }
 @media screen and (min-width: 480px) {
   .flex_container > div {
     background-color: #fff;
-     margin: 1.5px;
+     margin: 10.5px;
     text-align: center;
     line-height: 75px;
     font-size: 30px;
     /* align-items: stretch; */
     /* flex: .81 0 30%; */
     /* flex-basis: 100%; */
-    flex: 1 0 33%;
+    flex: 1 0 30%;
     min-width: 260px;
     max-width: 50%;
   }
 }
 
 .share {
-  color: navy;
+  color: #757575;   
   height: 10px;
   width: 20px;
   position: absolute;

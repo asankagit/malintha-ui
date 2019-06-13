@@ -86,7 +86,7 @@ class CartoonGallery extends React.Component {
                 this.props.photoUrl.map((image, index) => {
                    return (<div key={image.id} /*style={{backgroundImage:`url(${image.url})`}}*/>
                    <img src={image.url} width="100%" />
-                   <div class="share"> <SocialPlugins  sharelink={"#"} hashTag="" text="" iconColor="" textColor =""/></div>
+                   <div class="share"> <SocialPlugins  sharelink={window.location.href} hashTag="cartoon politics" text="cartoon" iconColor="" textColor =""/></div>
                     </div>)
                 })
                 : 

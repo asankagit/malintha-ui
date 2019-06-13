@@ -1,12 +1,38 @@
 .share_card{
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     align-content: center;
     align-items: center;
+    /* background-color: red; */
+    position: relative;
+    top: 403px;
 }
 .mailIcon {
     margin-top: 10px;
 }
 .svgMailIcon {
     width: 13px;
+}
+.circle >div >div > svg{
+    border-radius: 100%;
+    background-color: white;
+    width: 35px;
+    height:35px;
+    padding: 6px 0px 6px 0px ;
+    /* border: solid 1px gray; */
+    margin: 0 5px 0 5px;
+    box-shadow: -2px 3px 8px -1px grey;
+
+}
+.circle >div > svg{
+    border-radius: 100%;
+    background-color: white;
+    width: 35px;
+    height:35px;
+    margin: 0 3px 0 3px;
+    padding: 6px 0px 6px 0px ;
+    /* border: solid 1px gray; */
+    box-shadow: -2px 3px 8px -1px grey;
+
 }
